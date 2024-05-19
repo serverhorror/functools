@@ -11,6 +11,11 @@ It includes functions for mapping, reducing, and filtering data.
 - `Reduce`: Reduces a slice of data to a single value by applying a provided function.
 - `Filter`: Filters a slice of data according to a provided function.
 
+### Go Experiment `rangefuc`
+
+When enabling the Go experiment `rangefunc`, the `MapRange` function is available.
+This function uses a `range` loop to apply a provided function to each element of an iterator.
+
 ## Usage
 
 Here are some examples of how to use the `functools` library:
