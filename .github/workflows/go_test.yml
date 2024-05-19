@@ -15,7 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: ['1.20', '1.21', '1.22', 'tip']
+        go_version:
+          # - '1.20'
+          - '1.21'
+          - '1.22'
+          - 'stable'
     steps:
     - uses: actions/checkout@v4
 
