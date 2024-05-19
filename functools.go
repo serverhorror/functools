@@ -39,7 +39,8 @@ func Reduce[T any, Out any](r ReduceFn[T, Out], s []T) (Out, error) {
 	for _, v := range s {
 		accumulator, err = r(accumulator, v)
 		if err != nil {
-			return accumulator, err
+			var acc Out
+			return acc, err
 		}
 	}
 	return accumulator, nil
