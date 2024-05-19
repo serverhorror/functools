@@ -1,9 +1,11 @@
-package functools
+package functools_test
 
 import (
 	"fmt"
 	"reflect"
 	"testing"
+
+	"github.com/serverhorror/functools"
 )
 
 func TestReduce_T1(t *testing.T) {
@@ -29,7 +31,7 @@ func TestReduce_T1(t *testing.T) {
 		want:    "123",
 		wantErr: false,
 	}
-	got, err := Reduce(test.args.fn, test.args.s)
+	got, err := functools.Reduce(test.args.fn, test.args.s)
 	if (err != nil) != test.wantErr {
 		t.Errorf("Reduce() error = %v, wantErr %v", err, test.wantErr)
 		return

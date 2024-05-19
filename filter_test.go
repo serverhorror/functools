@@ -1,8 +1,10 @@
-package functools
+package functools_test
 
 import (
 	"reflect"
 	"testing"
+
+	"github.com/serverhorror/functools"
 )
 
 func TestFilterInt(t *testing.T) {
@@ -28,7 +30,7 @@ func TestFilterInt(t *testing.T) {
 		wantErr: false,
 	}
 
-	got, err := Filter(test.args.f, test.args.s)
+	got, err := functools.Filter(test.args.f, test.args.s)
 	if (err != nil) != test.wantErr {
 		t.Errorf("Filter() error = %v, wantErr %v", err, test.wantErr)
 	}
