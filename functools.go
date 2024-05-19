@@ -1,6 +1,7 @@
 package functools
 
-func Filter[T any](f func(T) (bool, error), s []T) ([]T, error) {
+type FilterFn[T any] func(T) (bool, error)
+func Filter[T any](f FilterFn[T], s []T) ([]T, error) {
 	result := make([]T, 0, len(s))
 	var ok bool
 	var err error
@@ -16,7 +17,8 @@ func Filter[T any](f func(T) (bool, error), s []T) ([]T, error) {
 	return result, nil
 }
 
-func Map[T any, Out any](m func(T) (Out, error), s []T) ([]Out, error) {
+type MapFn[T any, Out any] func(T) (Out, error)
+func Map[T any, Out any](m MapFn[T, Out], s []T) ([]Out, error) {
 	result := make([]Out, 0, len(s))
 	var r Out
 	var err error
@@ -30,7 +32,8 @@ func Map[T any, Out any](m func(T) (Out, error), s []T) ([]Out, error) {
 	return result, nil
 }
 
-func Reduce[T any, Out any](r func(Out, T) (Out, error), s []T) (Out, error) {
+type ReduceFn[T any, Out any] func(Out, T) (Out, error)
+func Reduce[T any, Out any](r ReduceFn[T, Out], s []T) (Out, error) {
 	var accumulator Out
 	var err error
 	for _, v := range s {
