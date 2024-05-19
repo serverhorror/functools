@@ -30,11 +30,11 @@ func Map[T any, Out any](m func(T) (Out, error), s []T) ([]Out, error) {
 	return result, nil
 }
 
-func Reduce[T any, Out any](f func(Out, T) (Out, error), s []T) (Out, error) {
+func Reduce[T any, Out any](r func(Out, T) (Out, error), s []T) (Out, error) {
 	var accumulator Out
 	var err error
 	for _, v := range s {
-		accumulator, err = f(accumulator, v)
+		accumulator, err = r(accumulator, v)
 		if err != nil {
 			return accumulator, err
 		}
