@@ -50,6 +50,28 @@ func Example_intToStringMap() {
 	// Output: []string{"1", "2", "3"}
 
 }
+
+func ExampleMap() {
+	mapper := func(i int) (string, error) {
+		lookup := map[int]string{
+			1: "z",
+			2: "y",
+			3: "x",
+		}
+		return lookup[i], nil
+	}
+
+	out, err := functools.Map(mapper, []int{1, 2, 3})
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(
+		fmt.Sprintf("%+#v", out),
+	)
+	// Output: []string{"z", "y", "x"}
+
+}
+
 func ExampleReduce() {
 	reduce := func(out string, x int) (string, error) {
 		s := fmt.Sprintf("%v%v", out, x)
