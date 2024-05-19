@@ -15,11 +15,13 @@ func ExampleFilter() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(out)
-	// Output: [2]
+	fmt.Println(
+		fmt.Sprintf("%+#v", out),
+	)
+	// Output: []int{2}
 }
 
-func Example_stringToInt_Map() {
+func Example_stringToIntMap() {
 	mapper := func(s string) (int, error) {
 		return strconv.Atoi(s)
 	}
@@ -27,11 +29,13 @@ func Example_stringToInt_Map() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(out)
-	// Output: [1 2 3]
+	fmt.Println(
+		fmt.Sprintf("%+#v", out),
+	)
+	// Output: []int{1, 2, 3}
 }
 
-func Example_intToString_Map() {
+func Example_intToStringMap() {
 	mapper := func(i int) (string, error) {
 		return fmt.Sprintf("%v", i), nil
 	}
@@ -40,8 +44,10 @@ func Example_intToString_Map() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(out)
-	// Output: [1 2 3]
+	fmt.Println(
+		fmt.Sprintf("%+#v", out),
+	)
+	// Output: []string{"1", "2", "3"}
 
 }
 func ExampleReduce() {
@@ -55,7 +61,9 @@ func ExampleReduce() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(out)
-	// Output: 123
+	fmt.Println(
+		fmt.Sprintf("%+#v", out),
+	)
+	// Output: "123"
 
 }
