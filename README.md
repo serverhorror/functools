@@ -2,7 +2,8 @@
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/serverhorror/functools.svg)](https://pkg.go.dev/github.com/serverhorror/functools)
 
-`functools` is a Go library that provides utility functions for functional programming patterns. It includes functions for mapping, reducing, and filtering data.
+`functools` is a zero dependency generic Go library that provides utility functions for functional programming patterns.
+It includes functions for mapping, reducing, and filtering data.
 
 ## Features
 
